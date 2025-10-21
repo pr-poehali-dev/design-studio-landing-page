@@ -9,7 +9,7 @@ interface NavigationProps {
 
 const Navigation = ({ activeSection, mobileMenuOpen, setMobileMenuOpen, scrollToSection }: NavigationProps) => {
   return (
-    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-border">
+    <nav className="fixed top-0 w-full bg-background/90 backdrop-blur-md z-50 border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <button onClick={() => scrollToSection('home')} className="flex items-center">

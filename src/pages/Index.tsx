@@ -190,9 +190,9 @@ const Index = () => {
 
       <ContactsSection />
 
-      <footer className="bg-charcoal text-white py-8 px-6 border-t border-gold/20">
+      <footer className="bg-background/50 text-foreground py-8 px-6 border-t border-gold/20">
         <div className="container mx-auto text-center">
-          <p className="text-gray-400">© 2024 Premium Design & Renovation. Все права защищены.</p>
+          <p className="text-muted-foreground">© 2024 Premium Design & Renovation. Все права защищены.</p>
         </div>
       </footer>
 

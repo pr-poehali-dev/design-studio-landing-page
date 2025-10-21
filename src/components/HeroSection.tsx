@@ -8,7 +8,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
   return (
     <section id="home" className="pt-32 pb-20 px-6">
       <div className="container mx-auto text-center animate-fade-in">
-        <h2 className="text-6xl md:text-7xl font-bold mb-6 text-charcoal">
+        <h2 className="text-6xl md:text-7xl font-bold mb-6 text-foreground">
           Создаём пространства<br />вашей мечты
         </h2>
         <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">

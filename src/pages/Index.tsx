@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -12,6 +12,15 @@ const Index = () => {
   const [roomType, setRoomType] = useState('apartment');
   const [repairType, setRepairType] = useState('standard');
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [mobileMenuOpen]);
 
   const calculatePrice = () => {
     const basePrice = {
@@ -33,6 +42,7 @@ const Index = () => {
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
+    setMobileMenuOpen(false);
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -116,6 +126,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-charcoal">Premium Design & Renovation</h1>
+            
             <div className="hidden md:flex gap-8">
               {['home', 'portfolio', 'services', 'advantages', 'team', 'reviews', 'calculator', 'contacts'].map((section) => (
                 <button
@@ -136,6 +147,41 @@ const Index = () => {
                 </button>
               ))}
             </div>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 hover:bg-gold/10 rounded-lg transition-colors"
+              aria-label="Меню"
+            >
+              <Icon name={mobileMenuOpen ? 'X' : 'Menu'} size={24} className="text-charcoal" />
+            </button>
+          </div>
+        </div>
+
+        <div
+          className={`md:hidden fixed inset-0 top-[73px] bg-charcoal/95 backdrop-blur-lg transition-transform duration-300 ${
+            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
+            {['home', 'portfolio', 'services', 'advantages', 'team', 'reviews', 'calculator', 'contacts'].map((section) => (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className={`text-2xl font-medium transition-colors hover:text-gold ${
+                  activeSection === section ? 'text-gold' : 'text-white'
+                }`}
+              >
+                {section === 'home' && 'Главная'}
+                {section === 'portfolio' && 'Портфолио'}
+                {section === 'services' && 'Услуги'}
+                {section === 'advantages' && 'Преимущества'}
+                {section === 'team' && 'Команда'}
+                {section === 'reviews' && 'Отзывы'}
+                {section === 'calculator' && 'Калькулятор'}
+                {section === 'contacts' && 'Контакты'}
+              </button>
+            ))}
           </div>
         </div>
       </nav>

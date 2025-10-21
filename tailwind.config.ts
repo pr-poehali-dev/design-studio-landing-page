@@ -64,7 +64,8 @@ export default {
 				},
 				gold: '#D4AF37',
 				charcoal: '#2C2C2C',
-				latte: '#F5F5F5'
+				latte: '#F5F5F5',
+				orange: 'rgb(229, 108, 44)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

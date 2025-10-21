@@ -19,10 +19,10 @@ interface PortfolioSectionProps {
 
 const PortfolioSection = ({ portfolioProjects, setSelectedProject }: PortfolioSectionProps) => {
   return (
-    <section id="portfolio" className="py-20 px-6 bg-latte">
+    <section id="portfolio" className="py-20 px-6 bg-background/50">
       <div className="container mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-4 text-charcoal">Портфолио</h2>
-        <p className="text-center text-muted-foreground mb-16">Наши лучшие проекты</p>
+        <h2 className="text-5xl font-bold text-center mb-4 text-white">Портфолио</h2>
+        <p className="text-center text-orange mb-16">Наши лучшие проекты</p>
         <div className="grid md:grid-cols-3 gap-8">
           {portfolioProjects.map((project, index) => (
             <Card 
@@ -37,14 +37,14 @@ const PortfolioSection = ({ portfolioProjects, setSelectedProject }: PortfolioSe
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-                  <Button className="bg-gold hover:bg-gold/90 text-charcoal font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Button className="bg-orange hover:bg-orange/90 text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Смотреть проект
                   </Button>
                 </div>
               </div>
               <CardContent className="p-6">
-                <p className="text-sm text-gold mb-2">{project.type}</p>
-                <h3 className="text-xl font-semibold">{project.title}</h3>
+                <p className="text-sm text-orange mb-2">{project.type}</p>
+                <h3 className="text-xl font-semibold text-white">{project.title}</h3>
               </CardContent>
             </Card>
           ))}

@@ -34,39 +34,39 @@ const ProjectModal = ({
     >
       <div className="min-h-screen py-12 px-4">
         <div 
-          className="max-w-6xl mx-auto bg-white rounded-lg overflow-hidden"
+          className="max-w-6xl mx-auto bg-card rounded-lg overflow-hidden border border-orange/20"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="relative">
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white rounded-full p-3 transition-colors"
+              className="absolute top-4 right-4 z-10 bg-orange/90 hover:bg-orange rounded-full p-3 transition-colors"
             >
-              <Icon name="X" size={24} className="text-charcoal" />
+              <Icon name="X" size={24} className="text-white" />
             </button>
             
             <div className="p-8 md:p-12">
               <div className="mb-8">
-                <p className="text-gold font-medium mb-2">{portfolioProjects[selectedProject].type}</p>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-charcoal">
+                <p className="text-orange font-medium mb-2">{portfolioProjects[selectedProject].type}</p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
                   {portfolioProjects[selectedProject].title}
                 </h2>
-                <p className="text-lg text-muted-foreground mb-6">
+                <p className="text-lg text-orange/80 mb-6">
                   {portfolioProjects[selectedProject].description}
                 </p>
                 
                 <div className="flex flex-wrap gap-6 text-sm">
                   <div>
-                    <span className="text-muted-foreground">Площадь:</span>
-                    <span className="ml-2 font-semibold">{portfolioProjects[selectedProject].area}</span>
+                    <span className="text-orange/80">Площадь:</span>
+                    <span className="ml-2 font-semibold text-white">{portfolioProjects[selectedProject].area}</span>
                   </div>
                   <div>
-                    <span className="text-muted-foreground">Срок реализации:</span>
-                    <span className="ml-2 font-semibold">{portfolioProjects[selectedProject].duration}</span>
+                    <span className="text-orange/80">Срок реализации:</span>
+                    <span className="ml-2 font-semibold text-white">{portfolioProjects[selectedProject].duration}</span>
                   </div>
                   <div>
-                    <span className="text-muted-foreground">Год:</span>
-                    <span className="ml-2 font-semibold">{portfolioProjects[selectedProject].year}</span>
+                    <span className="text-orange/80">Год:</span>
+                    <span className="ml-2 font-semibold text-white">{portfolioProjects[selectedProject].year}</span>
                   </div>
                 </div>
               </div>
@@ -86,7 +86,7 @@ const ProjectModal = ({
               <div className="mt-12 text-center">
                 <Button 
                   size="lg" 
-                  className="bg-gold hover:bg-gold/90 text-charcoal font-semibold"
+                  className="bg-orange hover:bg-orange/90 text-white font-semibold"
                   onClick={() => {
                     setSelectedProject(null);
                     scrollToSection('contacts');

@@ -25,8 +25,8 @@ const Navigation = ({ activeSection, mobileMenuOpen, setMobileMenuOpen, scrollTo
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`text-sm font-medium transition-colors hover:text-gold ${
-                  activeSection === section ? 'text-gold' : 'text-foreground'
+                className={`text-sm font-medium transition-colors hover:text-orange ${
+                  activeSection === section ? 'text-orange' : 'text-white'
                 }`}
               >
                 {section === 'home' && 'Главная'}
@@ -62,7 +62,7 @@ const Navigation = ({ activeSection, mobileMenuOpen, setMobileMenuOpen, scrollTo
               key={section}
               onClick={() => scrollToSection(section)}
               className={`text-3xl font-semibold transition-colors ${
-                activeSection === section ? 'text-gold' : 'text-latte hover:text-gold'
+                activeSection === section ? 'text-orange' : 'text-white hover:text-orange'
               }`}
             >
               {section === 'home' && 'Главная'}

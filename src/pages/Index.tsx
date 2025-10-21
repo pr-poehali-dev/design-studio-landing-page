@@ -190,7 +190,7 @@ const Index = () => {
         </div>
 
         <div
-          className={`md:hidden fixed inset-0 top-[73px] bg-charcoal/95 backdrop-blur-lg transition-transform duration-300 ${
+          className={`md:hidden fixed inset-0 top-[73px] bg-charcoal backdrop-blur-lg transition-transform duration-300 ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >

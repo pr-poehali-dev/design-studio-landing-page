@@ -35,7 +35,7 @@ const Navigation = ({ activeSection, mobileMenuOpen, setMobileMenuOpen, scrollTo
             ))}
           </div>
 
-          <button
+          <button className="md:hidden p-2 hover:bg-gold/10 rounded-lg transition-colors text-slate-600 bg-slate-50 px-2 text-sm"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 hover:bg-gold/10 rounded-lg transition-colors"
             aria-label="Меню"

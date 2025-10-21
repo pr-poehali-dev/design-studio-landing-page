@@ -13,14 +13,15 @@ const Index = () => {
   const [repairType, setRepairType] = useState('standard');
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   useEffect(() => {
-    if (mobileMenuOpen) {
+    if (mobileMenuOpen || selectedProject !== null) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, selectedProject]);
 
   const calculatePrice = () => {
     const basePrice = {
@@ -51,17 +52,47 @@ const Index = () => {
     {
       title: 'Современная квартира в ЖК "Премиум"',
       type: 'Квартира 120 м²',
-      image: 'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/948f37c7-27f5-4d85-a872-a8badbf75629.jpg'
+      description: 'Полная трансформация пространства с использованием премиальных материалов. Индивидуальный дизайн, отражающий стиль жизни владельцев.',
+      area: '120 м²',
+      duration: '4 месяца',
+      year: '2024',
+      image: 'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/948f37c7-27f5-4d85-a872-a8badbf75629.jpg',
+      gallery: [
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/948f37c7-27f5-4d85-a872-a8badbf75629.jpg',
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/687ed3b2-ffee-4881-a502-57bb25b3839b.jpg',
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/1975b7f9-a25b-4b9d-ae12-e780637331a7.jpg',
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/809a5316-2a41-4d16-bf3d-bd93c1207fb7.jpg'
+      ]
     },
     {
       title: 'Элегантная кухня-гостиная',
       type: 'Квартира 85 м²',
-      image: 'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/62831a09-080a-4a57-9933-8aeafaf56233.jpg'
+      description: 'Объединённое пространство кухни и гостиной в современном стиле. Мраморные поверхности и золотые акценты создают атмосферу роскоши.',
+      area: '85 м²',
+      duration: '3 месяца',
+      year: '2023',
+      image: 'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/62831a09-080a-4a57-9933-8aeafaf56233.jpg',
+      gallery: [
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/62831a09-080a-4a57-9933-8aeafaf56233.jpg',
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/809a5316-2a41-4d16-bf3d-bd93c1207fb7.jpg',
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/687ed3b2-ffee-4881-a502-57bb25b3839b.jpg'
+      ]
     },
     {
       title: 'Роскошная ванная комната',
       type: 'Дом 200 м²',
-      image: 'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/1ec73730-579e-4d7d-af76-bdb19c31ee71.jpg'
+      description: 'Spa-зона премиум класса с использованием итальянской плитки и дизайнерской сантехники. Система умного дома для полного комфорта.',
+      area: '200 м²',
+      duration: '6 месяцев',
+      year: '2024',
+      image: 'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/1ec73730-579e-4d7d-af76-bdb19c31ee71.jpg',
+      gallery: [
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/1ec73730-579e-4d7d-af76-bdb19c31ee71.jpg',
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/1975b7f9-a25b-4b9d-ae12-e780637331a7.jpg',
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/96019dfe-81ea-448b-9b8e-422fa9fa46de.jpg',
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/f3948afd-b7be-4835-84ea-c648cd9f04e2.jpg',
+        'https://cdn.poehali.dev/projects/2b9da5c2-3365-4f75-8bb3-5edbba0afaee/files/2c89f405-09bb-4804-b65d-c4e90851f763.jpg'
+      ]
     }
   ];
 
@@ -212,14 +243,22 @@ const Index = () => {
           <p className="text-center text-muted-foreground mb-16">Наши лучшие проекты</p>
           <div className="grid md:grid-cols-3 gap-8">
             {portfolioProjects.map((project, index) => (
-              <Card key={index} className="overflow-hidden group cursor-pointer animate-scale-in hover:shadow-2xl transition-all duration-300">
+              <Card 
+                key={index} 
+                onClick={() => setSelectedProject(index)}
+                className="overflow-hidden group cursor-pointer animate-scale-in hover:shadow-2xl transition-all duration-300"
+              >
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                    <Button className="bg-gold hover:bg-gold/90 text-charcoal font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Смотреть проект
+                    </Button>
+                  </div>
                 </div>
                 <CardContent className="p-6">
                   <p className="text-sm text-gold mb-2">{project.type}</p>
@@ -413,6 +452,81 @@ const Index = () => {
           <p className="text-gray-400">© 2024 Premium Design & Renovation. Все права защищены.</p>
         </div>
       </footer>
+
+      {selectedProject !== null && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-[100] overflow-y-auto"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div className="min-h-screen py-12 px-4">
+            <div 
+              className="max-w-6xl mx-auto bg-white rounded-lg overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative">
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white rounded-full p-3 transition-colors"
+                >
+                  <Icon name="X" size={24} className="text-charcoal" />
+                </button>
+                
+                <div className="p-8 md:p-12">
+                  <div className="mb-8">
+                    <p className="text-gold font-medium mb-2">{portfolioProjects[selectedProject].type}</p>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-charcoal">
+                      {portfolioProjects[selectedProject].title}
+                    </h2>
+                    <p className="text-lg text-muted-foreground mb-6">
+                      {portfolioProjects[selectedProject].description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-6 text-sm">
+                      <div>
+                        <span className="text-muted-foreground">Площадь:</span>
+                        <span className="ml-2 font-semibold">{portfolioProjects[selectedProject].area}</span>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Срок реализации:</span>
+                        <span className="ml-2 font-semibold">{portfolioProjects[selectedProject].duration}</span>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Год:</span>
+                        <span className="ml-2 font-semibold">{portfolioProjects[selectedProject].year}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {portfolioProjects[selectedProject].gallery.map((image, idx) => (
+                      <div key={idx} className="relative overflow-hidden rounded-lg group">
+                        <img
+                          src={image}
+                          alt={`${portfolioProjects[selectedProject].title} - фото ${idx + 1}`}
+                          className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-12 text-center">
+                    <Button 
+                      size="lg" 
+                      className="bg-gold hover:bg-gold/90 text-charcoal font-semibold"
+                      onClick={() => {
+                        setSelectedProject(null);
+                        scrollToSection('contacts');
+                      }}
+                    >
+                      Заказать похожий проект
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

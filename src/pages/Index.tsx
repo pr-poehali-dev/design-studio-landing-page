@@ -190,17 +190,17 @@ const Index = () => {
         </div>
 
         <div
-          className={`md:hidden fixed inset-0 top-[73px] bg-[#3a3a3a] backdrop-blur-lg transition-transform duration-300 ${
+          className={`md:hidden fixed inset-0 top-[73px] bg-charcoal transition-transform duration-300 ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
+          <div className="flex flex-col items-center justify-center h-full gap-10 px-6">
             {['home', 'portfolio', 'services', 'advantages', 'team', 'reviews', 'calculator', 'contacts'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`text-2xl font-medium transition-colors hover:text-gold ${
-                  activeSection === section ? 'text-gold' : 'text-white'
+                className={`text-3xl font-semibold transition-colors ${
+                  activeSection === section ? 'text-gold' : 'text-latte hover:text-gold'
                 }`}
               >
                 {section === 'home' && 'Главная'}

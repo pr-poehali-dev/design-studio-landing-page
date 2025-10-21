@@ -12,7 +12,13 @@ const Navigation = ({ activeSection, mobileMenuOpen, setMobileMenuOpen, scrollTo
     <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-charcoal">Premium Design & Renovation</h1>
+          <button onClick={() => scrollToSection('home')} className="flex items-center">
+            <img 
+              src="https://cdn.poehali.dev/files/55c37a1c-3483-497b-9002-023b62ed393f.jpg" 
+              alt="УСПЕХ"
+              className="h-10 w-auto"
+            />
+          </button>
           
           <div className="hidden md:flex gap-8">
             {['home', 'portfolio', 'services', 'advantages', 'team', 'reviews', 'calculator', 'contacts'].map((section) => (
